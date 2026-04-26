@@ -35,6 +35,8 @@ import { TutorialComponent } from './components/tutorial.component';
       <a routerLink="/rob-bomb"      routerLinkActive="active">💣 Rob-Bomb</a>
       <a routerLink="/rob-ray"       routerLinkActive="active">⚡ Rob-Ray</a>
       <a routerLink="/robo-link"     routerLinkActive="active">🔌 Robo-Link</a>
+      <a routerLink="/rob-weight"    routerLinkActive="active">🧪 Rob-Weight</a>
+      <a routerLink="/robo-sort"      routerLinkActive="active">🔋 Rob-Sort</a>
     </nav>
 
     <main>

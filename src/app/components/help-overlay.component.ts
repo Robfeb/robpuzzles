@@ -19,6 +19,8 @@ import { CommonModule } from '@angular/common';
             <button class="help-tab" [class.active]="tab() === 'bomb'"    (click)="tab.set('bomb')">💣 Rob-Bomb</button>
             <button class="help-tab" [class.active]="tab() === 'ray'"     (click)="tab.set('ray')">⚡ Rob-Ray</button>
             <button class="help-tab" [class.active]="tab() === 'link'"    (click)="tab.set('link')">🔌 Robo-Link</button>
+            <button class="help-tab" [class.active]="tab() === 'weight'"  (click)="tab.set('weight')">🧪 Rob-Weight</button>
+            <button class="help-tab" [class.active]="tab() === 'sort'"    (click)="tab.set('sort')">🔋 Rob-Sort</button>
           </div>
         </div>
 
@@ -200,6 +202,67 @@ import { CommonModule } from '@angular/common';
             </div>
           </div>
         }
+ 
+        <!-- ── Rob-Weight ── -->
+        @if (tab() === 'weight') {
+          <div class="help-body">
+            <div class="help-section">
+              <h3>🎯 Goal</h3>
+              <p>Manipulate jars to reach the target volume exactly. The target value is reached when at least one jar contains that amount.</p>
+            </div>
+            <div class="help-section">
+              <h3>🧪 Fluid Mechanics</h3>
+              <ul>
+                <li><strong>Fill:</strong> Fill a jar to its maximum capacity.</li>
+                <li><strong>Empty:</strong> Discard all fluid in a jar.</li>
+                <li><strong>Pour:</strong> Transfer fluid from one jar to another until the source is empty or the destination is full.</li>
+                <li><strong>Evaporate:</strong> Remove exactly 1L from a jar (costs one move).</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🕹️ Controls</h3>
+              <table class="help-table">
+                <tr><td>🖱️ Drag Jar A → B</td><td>Pour A into B</td></tr>
+                <tr><td>🖱️ Tap Jar</td><td>Open Fill/Empty menu</td></tr>
+                <tr><td>💨 FAB</td><td>Toggle Evaporator Mode</td></tr>
+                <tr><td>↩️</td><td>Undo move</td></tr>
+              </table>
+            </div>
+          </div>
+        }
+ 
+        <!-- ── Rob-Sort ── -->
+        @if (tab() === 'sort') {
+          <div class="help-body">
+            <div class="help-section">
+              <h3>🎯 Goal</h3>
+              <p>Sort all cores into the tubes until each tube contains only one color of cores (or is empty).</p>
+            </div>
+            <div class="help-section">
+              <h3>🔋 Movement Rules</h3>
+              <ul>
+                <li>You can only move a core onto an <strong>empty tube</strong> or onto another core of the <strong>same color</strong>.</li>
+                <li>Tubes have a maximum capacity of 4 cores.</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🗃️ Deep Pocket</h3>
+              <ul>
+                <li>The Deep Pocket can hold exactly <strong>one core</strong> of any color at any time.</li>
+                <li>You can move a core into the pocket whenever it's empty.</li>
+                <li>To move a core out of the pocket, it must follow standard color-matching rules for the destination tube.</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🕹️ Controls</h3>
+              <table class="help-table">
+                <tr><td>🖱️ Tap Tube</td><td>Select top core / Move to tube</td></tr>
+                <tr><td>🖱️ Drag & Drop</td><td>Move core between tubes</td></tr>
+                <tr><td>🗃️ FAB</td><td>Toggle Deep Pocket Mode</td></tr>
+              </table>
+            </div>
+          </div>
+        }
 
         <button (click)="close()" class="primary close-btn">Got it! 👍</button>
       </div>
@@ -241,6 +304,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HelpOverlayComponent {
   @Output() closed = new EventEmitter<void>();
-  tab = signal<'sliding' | 'soko' | 'maze' | 'bomb' | 'ray' | 'link'>('sliding');
+  tab = signal<'sliding' | 'soko' | 'maze' | 'bomb' | 'ray' | 'link' | 'weight' | 'sort'>('sliding');
   close() { this.closed.emit(); }
 }

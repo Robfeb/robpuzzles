@@ -116,6 +116,42 @@ const GAMES: TutorialGame[] = [
       },
     ]
   },
+  {
+    icon: '🧪',
+    name: 'Rob-Weight',
+    steps: [
+      {
+        title: 'Goal',
+        body: 'Measure exactly the <strong>Target Volume</strong> by transferring fluid between jars of different sizes.'
+      },
+      {
+        title: 'Actions',
+        body: 'Drag one jar onto another to <strong>Pour</strong>. Use the context menu to <strong>Fill</strong> a jar to its max or <strong>Empty</strong> it completely.'
+      },
+      {
+        title: 'The Evaporator',
+        body: 'Toggle 💨 <strong>Evaporator Mode</strong> to remove exactly 1L from a jar by tapping it. This is often necessary for prime-number targets!'
+      },
+    ]
+  },
+  {
+    icon: '🔋',
+    name: 'Rob-Sort',
+    steps: [
+      {
+        title: 'Goal',
+        body: 'Sort all <strong>Energy Cores</strong> by color. Each tube must eventually contain only one color or be empty.'
+      },
+      {
+        title: 'Movement Rules',
+        body: 'A core can only be moved to an <strong>empty tube</strong> or on top of a core of the <strong>same color</strong>.'
+      },
+      {
+        title: 'Deep Pocket',
+        body: 'Use the 🗃️ <strong>Deep Pocket</strong> as a temporary slot for any single core. It can help you clear up a tube when you are stuck!'
+      },
+    ]
+  },
 ];
 
 @Component({
@@ -127,7 +163,7 @@ const GAMES: TutorialGame[] = [
       <div class="modal-content tutorial">
         <div class="tut-header">
           <h2>Welcome to Rob's Puzzle 🧠</h2>
-          <p class="tut-subtitle">Six games, one portal. Pick one to learn about:</p>
+          <p class="tut-subtitle">Eight games, one portal. Pick one to learn about:</p>
         </div>
 
         <!-- Game tabs -->

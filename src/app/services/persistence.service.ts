@@ -77,4 +77,20 @@ export class PersistenceService {
   setCurrentLevel(level: 'Easy' | 'Medium' | 'Hard') {
     this.progress.update(p => ({ ...p, currentLevel: level }));
   }
+
+  saveGameState(gameKey: string, state: any) {
+    localStorage.setItem(`robs_puzzle_state_${gameKey}`, JSON.stringify(state));
+  }
+
+  loadGameState(gameKey: string): any | null {
+    const stored = localStorage.getItem(`robs_puzzle_state_${gameKey}`);
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
 }
