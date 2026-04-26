@@ -29,15 +29,10 @@ import { TutorialComponent } from './components/tutorial.component';
     </header>
 
     <nav class="game-nav">
-      <a routerLink="/sliding-block" routerLinkActive="active" i18n="@@navSlidingBlock">
-        🧩 Sliding Block
-      </a>
-      <a routerLink="/soko-rob" routerLinkActive="active" i18n="@@navSokoRob">
-        🤖 Soko-Rob
-      </a>
-      <a routerLink="/robo-maze" routerLinkActive="active" i18n="@@navRoboMaze">
-        🌀 Robo-Maze
-      </a>
+      <a routerLink="/sliding-block" routerLinkActive="active">🧩 Sliding Block</a>
+      <a routerLink="/soko-rob"      routerLinkActive="active">🤖 Soko-Rob</a>
+      <a routerLink="/robo-maze"     routerLinkActive="active">🌀 Robo-Maze</a>
+      <a routerLink="/rob-bomb"      routerLinkActive="active">💣 Rob-Bomb</a>
     </nav>
 
     <main>
