@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="appTitle" datatype="html">
+        <source>Rob&apos;s Puzzle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.ts</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="difficultyLabel" datatype="html">
+        <source>Difficulty:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="diffEasy" datatype="html">
+        <source>Easy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="diffMedium" datatype="html">
+        <source>Medium</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="diffHard" datatype="html">
+        <source>Hard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newPuzzleTitle" datatype="html">
+        <source>New Puzzle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sharePuzzleTitle" datatype="html">
+        <source>Share Puzzle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="helpTitle" datatype="html">
+        <source>Help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/help-overlay.component.ts</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="movesText" datatype="html">
+        <source>Moves: <x id="INTERPOLATION" equiv-text="{{ moves() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="minMovesText" datatype="html">
+        <source>Optimal: <x id="INTERPOLATION" equiv-text="{{ minMoves() }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingText" datatype="html">
+        <source>Generating Puzzle...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">51,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="winTitle" datatype="html">
+        <source>Puzzle Solved!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="winText" datatype="html">
+        <source>You completed the puzzle in <x id="INTERPOLATION" equiv-text="{{ moves() }}"/> moves.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">58,59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nextPuzzleBtn" datatype="html">
+        <source>Next Puzzle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/game-container.component.ts</context>
+          <context context-type="linenumber">59,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="helpText" datatype="html">
+        <source>The gold block must reach the exit. Move other blocks out of the way. If you are stuck, you can try regenerating the puzzle!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/help-overlay.component.ts</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="closeBtn" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/help-overlay.component.ts</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tutorialTitle" datatype="html">
+        <source>How to Play</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tutorialStep1" datatype="html">
+        <source>Welcome to Rob&apos;s Puzzle! The goal of the game is to slide the <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;gold-text&quot;&gt;"/>gold key block<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> to the exit on the right.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tutorialStep2" datatype="html">
+        <source>Blocks can only move along their longest side. Horizontal blocks move left and right. Vertical blocks move up and down.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tutorialStep3" datatype="html">
+        <source>Select a block and use your arrow keys or drag to move it. Clear the path and solve the puzzle!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">18,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="prevBtn" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nextBtn" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="playBtn" datatype="html">
+        <source>Play Now</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="skipBtn" datatype="html">
+        <source>Skip</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tutorial.component.ts</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
