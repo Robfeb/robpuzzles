@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
             <button class="help-tab" [class.active]="tab() === 'maze'"    (click)="tab.set('maze')">🌀 Robo-Maze</button>
             <button class="help-tab" [class.active]="tab() === 'bomb'"    (click)="tab.set('bomb')">💣 Rob-Bomb</button>
             <button class="help-tab" [class.active]="tab() === 'ray'"     (click)="tab.set('ray')">⚡ Rob-Ray</button>
+            <button class="help-tab" [class.active]="tab() === 'link'"    (click)="tab.set('link')">🔌 Robo-Link</button>
           </div>
         </div>
 
@@ -173,6 +174,33 @@ import { CommonModule } from '@angular/common';
           </div>
         }
 
+        <!-- ── Robo-Link ── -->
+        @if (tab() === 'link') {
+          <div class="help-body">
+            <div class="help-section">
+              <h3>🎯 Goal</h3>
+              <p>Rotate the circuit components to create an unbroken path of electricity from the <strong>Battery</strong> to all <strong>Motors</strong>.</p>
+            </div>
+            <div class="help-section">
+              <h3>🔌 Super-Charge Mode</h3>
+              <ul>
+                <li>In Hard difficulty, you may encounter broken circuits.</li>
+                <li>Activate <strong>Super-Charge Mode</strong>, then tap two non-adjacent components to form a virtual bridge.</li>
+                <li>You can only have one active bridge at a time.</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🕹️ Controls</h3>
+              <table class="help-table">
+                <tr><td>🖱️ Tap / Click</td><td>Rotate a piece 90° clockwise</td></tr>
+                <tr><td><kbd>Space</kbd> / <kbd>F</kbd></td><td>Toggle Super-Charge Mode</td></tr>
+                <tr><td><kbd>U</kbd> / <kbd>Z</kbd></td><td>Undo last rotation</td></tr>
+                <tr><td>⚡ FAB (mobile)</td><td>Toggle Super-Charge Mode</td></tr>
+              </table>
+            </div>
+          </div>
+        }
+
         <button (click)="close()" class="primary close-btn">Got it! 👍</button>
       </div>
     </div>
@@ -213,6 +241,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HelpOverlayComponent {
   @Output() closed = new EventEmitter<void>();
-  tab = signal<'sliding' | 'soko' | 'maze' | 'bomb' | 'ray'>('sliding');
+  tab = signal<'sliding' | 'soko' | 'maze' | 'bomb' | 'ray' | 'link'>('sliding');
   close() { this.closed.emit(); }
 }

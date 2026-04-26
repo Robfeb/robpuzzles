@@ -161,6 +161,7 @@ header {
 .game-nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   background: var(--surface);
   padding: 0.6rem 1rem;

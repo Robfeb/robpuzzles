@@ -69,6 +69,16 @@ A laser reflection puzzle. Rotate mirrors and toggle Polarizer mode to direct a 
 | Undo ↩️ | Rewind mirror rotations and polarizer toggles |
 | Difficulty | Scales from 8x8 to 12x12 grids |
 
+### 🔌 Robo-Link
+A circuit-connection puzzle utilizing a high-performance Disjoint Set Union (DSU) engine. Rotate components to route power from the Battery to all Motors.
+
+| Feature | Detail |
+|---------|--------|
+| Circuits | `I`, `L`, `T`, and `Cross` piece variations |
+| Super-Charge | Tap 2 non-adjacent tiles to form a "Virtual Bridge" bypassing physical breaks |
+| Rendering | Pure SVG with dynamic `stroke-dashoffset` animations for electrified paths |
+| Generation | Built via Kruskal's Algorithm generating a Minimum Spanning Tree |
+
 ---
 
 ## Architecture
@@ -152,6 +162,12 @@ Maze is generated with a **seeded LCG RNG** so the same seed always produces the
 3. **Finish**: after placing required mirrors, place Emitter facing forward.
 4. **Distractors**: fill empty cells with fake walls, glass, and random mirrors without blocking the true path.
 
+### Robo-Link — Kruskal's MST
+1. **Grid Generation**: Create edges between all adjacent cells. Sort by random weights.
+2. **Spanning Tree**: Use Union-Find to build a maze-like Minimum Spanning Tree.
+3. **Piece Mapping**: Map the edge connectivity bitmask of each cell into an `I`, `L`, `T`, or `Cross` piece.
+4. **Scrambling**: Apply random rotational offsets. Inject non-rotatable `Broken` pieces on Hard mode to mandate Super-Charge usage.
+
 ---
 
 ## Soko-Rob Pull Mode — Mathematics
@@ -191,6 +207,31 @@ const energies = { Easy: 120, Medium: 200, Hard: 350 };
 // src/app/components/robo-maze.component.ts
 const FOG_RADIUS = 3;  // tiles of Chebyshev visibility
 ```
+
+---
+
+## Technical: Robo-Link DSU Engine
+
+The `CircuitLogicService` powers **Robo-Link** via a standard Disjoint Set Union (Union-Find) with path compression:
+
+### Bitmask Representation
+Connectivity is expressed as a 4-bit integer:
+- `N`: `1` (0001)
+- `E`: `2` (0010)
+- `S`: `4` (0100)
+- `W`: `8` (1000)
+
+**Rotation Math**: 
+Rotating a piece 90° clockwise is a simple bitwise shift and wrap:
+```typescript
+rotateBits(ports, rotation) {
+  const r = rotation % 4;
+  return ((ports << r) | (ports >> (4 - r))) & 15;
+}
+```
+
+### Adding New Pieces
+To add a new piece (e.g. a Diode), define its logical `basePorts` bitmask and implement logic in the DSU engine to only permit `union()` if the Diode's directional output aligns with the adjoining piece.
 
 ---
 

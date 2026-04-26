@@ -58,7 +58,61 @@ const GAMES: TutorialGame[] = [
       },
       {
         title: 'Controls',
-        body: '<b>Desktop:</b> Arrow keys / WASD to move · Q = Sonar · U/Z = Undo.<br><b>Mobile:</b> D-Pad bottom-left · 📡 FAB button bottom-right · Swipe on the board.<br><b>Undo</b> restores position and energy from the last step.'
+        body: '<b>Desktop:</b> Arrow keys / WASD to move · Q = Sonar · U/Z = Undo.<br><b>Mobile:</b> D-Pad bottom-left · 📡 FAB button bottom-right · Swipe on the board.'
+      },
+    ]
+  },
+  {
+    icon: '💣',
+    name: 'Rob-Bomb',
+    steps: [
+      {
+        title: 'Goal',
+        body: 'Eliminate all enemies 👾 and find the hidden 🚪 door by bombing soft walls.'
+      },
+      {
+        title: 'Explosions',
+        body: 'Drop bombs (Space/F) that explode in a cross shape after 3s. Collect power-ups hidden in walls to increase range and bomb count.'
+      },
+      {
+        title: 'Controls',
+        body: '<b>Desktop:</b> Arrow keys / WASD to move · Space / F to drop bombs.<br><b>Mobile:</b> D-Pad and 💣 FAB button.'
+      },
+    ]
+  },
+  {
+    icon: '⚡',
+    name: 'Rob-Ray',
+    steps: [
+      {
+        title: 'Goal',
+        body: 'Reflect the laser beam from the Emitter ⚙️ to the Receptor 📡 by rotating mirrors.'
+      },
+      {
+        title: 'Polarizer',
+        body: 'Glass blocks block the laser unless you activate the ⚡ Polarizer mode (Space/F). Once active, the laser passes straight through glass!'
+      },
+      {
+        title: 'Controls',
+        body: '<b>All:</b> Tap mirrors to rotate · ⚡ button/Space to toggle Polarizer · ↩️ Undo to step back.'
+      },
+    ]
+  },
+  {
+    icon: '🔌',
+    name: 'Robo-Link',
+    steps: [
+      {
+        title: 'Goal',
+        body: 'Rotate circuit components to connect the Battery ⚡ to all Motors ⚙️. Electrified paths will glow green.'
+      },
+      {
+        title: 'Super-Charge',
+        body: 'On hard levels, circuits might be broken. Use ⚡ Super-Charge mode to select two components and form a "Virtual Bridge" between them.'
+      },
+      {
+        title: 'Controls',
+        body: '<b>All:</b> Tap pieces to rotate · ⚡ button/Space for Super-Charge · ↩️ Undo support included.'
       },
     ]
   },
@@ -73,7 +127,7 @@ const GAMES: TutorialGame[] = [
       <div class="modal-content tutorial">
         <div class="tut-header">
           <h2>Welcome to Rob's Puzzle 🧠</h2>
-          <p class="tut-subtitle">Three games, one portal. Pick one to learn about:</p>
+          <p class="tut-subtitle">Six games, one portal. Pick one to learn about:</p>
         </div>
 
         <!-- Game tabs -->
