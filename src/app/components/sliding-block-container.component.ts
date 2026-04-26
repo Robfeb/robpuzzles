@@ -2,13 +2,15 @@ import { Component, signal, effect, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PersistenceService } from '../services/persistence.service';
 import { PuzzleGeneratorService, PuzzleState, GeneratedPuzzle } from '../services/puzzle-generator.service';
+import { HistoryManagerService } from '../services/history-manager.service';
 import { SlidingBlockComponent } from './sliding-block.component';
 import { HelpOverlayComponent } from './help-overlay.component';
 
 @Component({
-  selector: 'app-game-container',
+  selector: 'app-sliding-block-container',
   standalone: true,
   imports: [CommonModule, SlidingBlockComponent, HelpOverlayComponent],
+  providers: [HistoryManagerService],
   template: `
     <div class="game-container">
       <div class="controls">
@@ -22,6 +24,9 @@ import { HelpOverlayComponent } from './help-overlay.component';
         </div>
         
         <div class="actions">
+          <button class="icon-btn" (click)="undo()" title="Undo" i18n-title="@@undoTitle" [disabled]="isAutoPlaying() || !history.canUndo()">
+            ↩️
+          </button>
           <button class="icon-btn" (click)="generateNew()" title="New Puzzle" i18n-title="@@newPuzzleTitle" [disabled]="isAutoPlaying()">
             ⏭️
           </button>
@@ -76,9 +81,10 @@ import { HelpOverlayComponent } from './help-overlay.component';
     </div>
   `
 })
-export class GameContainerComponent implements OnInit {
+export class SlidingBlockContainerComponent implements OnInit {
   persistence = inject(PersistenceService);
   generator = inject(PuzzleGeneratorService);
+  history = inject(HistoryManagerService<PuzzleState>);
   
   difficulty = signal<'Easy' | 'Medium' | 'Hard'>('Easy');
   puzzleState = signal<PuzzleState | null>(null);
@@ -137,6 +143,7 @@ export class GameContainerComponent implements OnInit {
 
   generateNew() {
     this.clearAutoPlay();
+    this.history.clear();
     this.puzzleState.set(null);
     this.isSolved.set(false);
     this.moves.set(0);
@@ -154,6 +161,7 @@ export class GameContainerComponent implements OnInit {
 
   resetPuzzle() {
     this.clearAutoPlay();
+    this.history.clear();
     const initialState = this.initialPuzzleState();
     if (initialState) {
       this.puzzleState.set(initialState);
@@ -190,6 +198,15 @@ export class GameContainerComponent implements OnInit {
     
     // Slight delay before starting
     this.autoPlayTimeout = setTimeout(playNext, 400);
+  }
+
+  undo() {
+    if (this.isAutoPlaying() || this.isSolved()) return;
+    const previousState = this.history.undo();
+    if (previousState) {
+      this.puzzleState.set(previousState);
+      this.moves.update(m => m - 1);
+    }
   }
 
   sharePuzzle() {
@@ -245,6 +262,9 @@ export class GameContainerComponent implements OnInit {
     );
     
     if (collision) return;
+    
+    // Save state before applying move
+    this.history.pushState({ ...state, blocks: state.blocks.map(b => ({...b})) });
     
     // Apply move
     const newBlocks = state.blocks.map(b => b.id === block.id ? testBlock : b);
