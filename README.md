@@ -49,6 +49,26 @@ Navigate a **fog-covered procedural maze** and reach the green 🚪 exit before 
 | Swipe on board | Move (mobile) |
 | 📡 FAB | Sonar (mobile) |
 
+### 💣 Rob-Bomb
+A grid-based explosive action game. Drop bombs to destroy soft walls and eliminate all enemies to unlock the 🚪 door.
+
+| Feature | Detail |
+|---------|--------|
+| Bombs 💣 | Explode in a cross shape after 3s |
+| Power-ups | Max Bombs, Blast Range, Speed |
+| Enemies 👾 | Random walking AI, speed scales with level |
+| God Mode ✨| Press `I` 3 times for 0-second timers, piercing blasts, and ghost mode |
+
+### ⚡ Rob-Ray
+A laser reflection puzzle. Rotate mirrors and toggle Polarizer mode to direct a laser beam from an Emitter ⚙️ to a Receptor 📡.
+
+| Feature | Detail |
+|---------|--------|
+| Mirrors `/` `\` | Rotate 90° by clicking to redirect the laser |
+| Polarizer ⚡ | Allows the laser to pass through Glass blocks when active |
+| Undo ↩️ | Rewind mirror rotations and polarizer toggles |
+| Difficulty | Scales from 8x8 to 12x12 grids |
+
 ---
 
 ## Architecture
@@ -121,6 +141,16 @@ Maze is generated with a **seeded LCG RNG** so the same seed always produces the
 | Easy       | 11×11 | 120⚡ |
 | Medium     | 15×15 | 200⚡ |
 | Hard       | 21×21 | 350⚡ |
+
+### Rob-Bomb — Entity Loop
+- Uses a `setInterval` (100ms TICK) decoupled from Angular's change detection but tied to Signals.
+- Tracks `px, py` and maintains arrays of `bombs` and `enemies`.
+
+### Rob-Ray — Reverse-Raycasting
+1. **Start**: pick random receptor at an edge.
+2. **Reverse Trace**: move randomly backwards 2-4 steps, place a corner mirror.
+3. **Finish**: after placing required mirrors, place Emitter facing forward.
+4. **Distractors**: fill empty cells with fake walls, glass, and random mirrors without blocking the true path.
 
 ---
 

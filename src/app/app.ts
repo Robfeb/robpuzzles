@@ -33,6 +33,7 @@ import { TutorialComponent } from './components/tutorial.component';
       <a routerLink="/soko-rob"      routerLinkActive="active">🤖 Soko-Rob</a>
       <a routerLink="/robo-maze"     routerLinkActive="active">🌀 Robo-Maze</a>
       <a routerLink="/rob-bomb"      routerLinkActive="active">💣 Rob-Bomb</a>
+      <a routerLink="/rob-ray"       routerLinkActive="active">⚡ Rob-Ray</a>
     </nav>
 
     <main>

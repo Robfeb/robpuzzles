@@ -16,6 +16,8 @@ import { CommonModule } from '@angular/common';
             <button class="help-tab" [class.active]="tab() === 'sliding'" (click)="tab.set('sliding')">🧩 Sliding Block</button>
             <button class="help-tab" [class.active]="tab() === 'soko'"    (click)="tab.set('soko')">🤖 Soko-Rob</button>
             <button class="help-tab" [class.active]="tab() === 'maze'"    (click)="tab.set('maze')">🌀 Robo-Maze</button>
+            <button class="help-tab" [class.active]="tab() === 'bomb'"    (click)="tab.set('bomb')">💣 Rob-Bomb</button>
+            <button class="help-tab" [class.active]="tab() === 'ray'"     (click)="tab.set('ray')">⚡ Rob-Ray</button>
           </div>
         </div>
 
@@ -117,6 +119,60 @@ import { CommonModule } from '@angular/common';
           </div>
         }
 
+        <!-- ── Rob-Bomb ── -->
+        @if (tab() === 'bomb') {
+          <div class="help-body">
+            <div class="help-section">
+              <h3>🎯 Goal</h3>
+              <p>Eliminate all enemies 👾 and reach the hidden 🚪 door to advance to the next level.</p>
+            </div>
+            <div class="help-section">
+              <h3>💣 Mechanics</h3>
+              <ul>
+                <li>Drop bombs to destroy soft walls (teal blocks) and enemies.</li>
+                <li>Bombs explode after 3 seconds in a cross shape.</li>
+                <li>Destroying soft walls may reveal power-ups: Extra Bomb, Range Up, Speed Up.</li>
+                <li>Don't get caught in your own explosion!</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🕹️ Controls</h3>
+              <table class="help-table">
+                <tr><td><kbd>↑↓←→</kbd> / <kbd>WASD</kbd></td><td>Move player</td></tr>
+                <tr><td><kbd>Space</kbd> / <kbd>F</kbd></td><td>Drop Bomb</td></tr>
+                <tr><td>D-Pad (mobile)</td><td>Move player</td></tr>
+                <tr><td>💣 FAB (mobile)</td><td>Drop Bomb</td></tr>
+              </table>
+            </div>
+          </div>
+        }
+
+        <!-- ── Rob-Ray ── -->
+        @if (tab() === 'ray') {
+          <div class="help-body">
+            <div class="help-section">
+              <h3>🎯 Goal</h3>
+              <p>Rotate the mirrors to reflect the laser beam from the Emitter ⚙️ to the Receptor 📡.</p>
+            </div>
+            <div class="help-section">
+              <h3>⚡ Polarizer Mode</h3>
+              <ul>
+                <li>Glass blocks normally act as solid walls, blocking the laser.</li>
+                <li>Activate the <strong>Polarizer</strong> to make the laser pass straight through glass blocks!</li>
+              </ul>
+            </div>
+            <div class="help-section">
+              <h3>🕹️ Controls</h3>
+              <table class="help-table">
+                <tr><td>🖱️ Tap / Click</td><td>Rotate a mirror 90°</td></tr>
+                <tr><td><kbd>Space</kbd> / <kbd>F</kbd></td><td>Toggle Polarizer Mode</td></tr>
+                <tr><td><kbd>U</kbd> / <kbd>Z</kbd></td><td>Undo last action</td></tr>
+                <tr><td>⚡ FAB (mobile)</td><td>Toggle Polarizer Mode</td></tr>
+              </table>
+            </div>
+          </div>
+        }
+
         <button (click)="close()" class="primary close-btn">Got it! 👍</button>
       </div>
     </div>
@@ -157,6 +213,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HelpOverlayComponent {
   @Output() closed = new EventEmitter<void>();
-  tab = signal<'sliding' | 'soko' | 'maze'>('sliding');
+  tab = signal<'sliding' | 'soko' | 'maze' | 'bomb' | 'ray'>('sliding');
   close() { this.closed.emit(); }
 }

@@ -6,5 +6,6 @@ export const routes: Routes = [
   { path: 'soko-rob',  loadComponent: () => import('./components/soko-rob-container.component').then(m => m.SokoRobContainerComponent) },
   { path: 'robo-maze', loadComponent: () => import('./components/robo-maze.component').then(m => m.RoboMazeComponent) },
   { path: 'rob-bomb',  loadComponent: () => import('./components/rob-bomb.component').then(m => m.RobBombComponent) },
+  { path: 'rob-ray',   loadComponent: () => import('./components/rob-ray.component').then(m => m.RobRayComponent) },
   { path: '', redirectTo: 'sliding-block', pathMatch: 'full' }
 ];
